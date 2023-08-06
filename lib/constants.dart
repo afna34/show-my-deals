@@ -39,3 +39,5 @@ const kTopCornerCurvedContainer = BoxDecoration(
 );
 
 const kSmallWhiteTextStyle = TextStyle(color: Colors.white);
+
+const kMediumHeadingTextStyle = TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0);

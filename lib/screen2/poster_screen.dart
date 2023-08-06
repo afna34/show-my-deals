@@ -31,7 +31,7 @@ class PosterScreen extends StatelessWidget {
         children: [
           CustomAppBar(),
           AppBarButtons(
-            screen2name: disctName,
+            screen2name: disctName, i: 0,
           ),
           const SizedBox(
             height: 15,

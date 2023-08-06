@@ -101,28 +101,12 @@ class AllOffersWidget extends StatelessWidget {
                                         textAlign: TextAlign.center,
                                       )),
                                     )),
-                                //TODO:need to solve this problem
-                                Positioned(
-                                    top: 200,
-                                    left: 80,
-                                    child: SizedBox(
-                                      height: 60,
-                                      width: 60,
-                                      child: ClipRRect(
-                                        borderRadius: const BorderRadius.all(
-                                          Radius.circular(10),
-                                        ),
-                                        child: Image.network(
-                                          data["logo"],
-                                          fit: BoxFit.contain,
-                                        ),
-                                      ),
-                                    )),
                               ],
                             ),
                           ),
                           Container(
-                            margin: const EdgeInsets.all(5.0),
+                            margin: const EdgeInsets.only(
+                                left: 45.0, top: 5.0, bottom: 5.0),
                             decoration: kTopCornerCurvedContainer,
                             height: 20,
                             child: Text(
@@ -134,8 +118,7 @@ class AllOffersWidget extends StatelessWidget {
                       ),
                     ),
                   ),
-                for (var data in expList)
-                  ExpWidget(data: data)
+                for (var data in expList) ExpWidget(data: data)
               ],
             ),
           ],

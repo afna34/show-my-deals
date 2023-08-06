@@ -41,9 +41,9 @@ class _StoresScreenMainState extends State<StoresScreenMain> {
     return Scaffold(
       body: ListView(
         children: [
-          CustomAppBar(),
+          const CustomAppBar(),
           AppBarButtons(
-            screen2name: widget.disctName,
+            screen2name: widget.disctName, i: 0,
           ),
           const SizedBox(
             height: 15,

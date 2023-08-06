@@ -15,7 +15,7 @@ class Screen2appBar extends StatelessWidget {
     return Column(
       children: [
         CustomAppBar(),
-        AppBarButtons(screen2name: screen2name),
+        AppBarButtons(screen2name: screen2name, i: 1,),
         const SizedBox(
           height: 15,
         ),

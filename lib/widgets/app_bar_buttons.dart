@@ -5,10 +5,12 @@ import '../stores_screen/stores_screen_main.dart';
 
 class AppBarButtons extends StatefulWidget {
   String screen2name;
+  int i;
 
   AppBarButtons({
     super.key,
     required this.screen2name,
+    required this.i
   });
 
   @override
@@ -23,18 +25,18 @@ class _AppBarButtonsState extends State<AppBarButtons> {
       children: [
         Container(
           child: customBttons(
-            btnColor: kPinkColor,
+            btnColor: (widget.i != 0) ? kPinkColor : const Color(0xFFE5E5E5),
             text: 'Offers',
             ontap: () {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) =>
                       screen2(disctName: widget.screen2name,)));
             },
-            textcolor: Colors.white,
+            textcolor: (widget.i == 0) ? Colors.black : Colors.white,
           ),
         ),
         customBttons(
-          btnColor: const Color(0xFFE5E5E5), //TODO:Need to change the button color when clicked
+          btnColor: (widget.i != 0) ? const Color(0xFFE5E5E5):  kPinkColor, //TODO:Need to change the button color when clicked
           text: 'Stores',
           ontap: () {
             Navigator.of(context).push(MaterialPageRoute(
@@ -42,7 +44,7 @@ class _AppBarButtonsState extends State<AppBarButtons> {
                       disctName: widget.screen2name,
                     )));
           },
-          textcolor: Colors.black,
+          textcolor: (widget.i == 0) ? Colors.white : Colors.black,
         ),
       ],
     );

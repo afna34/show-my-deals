@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../constants.dart';
-import 'go_to_store.dart';
+import 'is_group_store.dart';
+import 'is_shop_store.dart';
 
 class PopularStoreList extends StatefulWidget {
   const PopularStoreList({
@@ -21,7 +22,7 @@ class PopularStoreList extends StatefulWidget {
 
 class _PopularStoreListState extends State<PopularStoreList> {
   List shop = [];
-  Future<dynamic> loadDistrictData() async {
+  Future<dynamic> loadShopData() async {
     final response = await http.get(Uri.parse(
         "https://showmydeals.in/api/${widget.disctName.toLowerCase()}/offers"));
     if (response.statusCode == 200) {
@@ -31,10 +32,14 @@ class _PopularStoreListState extends State<PopularStoreList> {
       });
     }
   }
+
+
+
+
   @override
   void initState() {
     super.initState();
-    loadDistrictData();
+    loadShopData();
   }
 
   @override
@@ -54,7 +59,7 @@ class _PopularStoreListState extends State<PopularStoreList> {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(left: 15),
+            margin: const EdgeInsets.only(left: 15),
             height: 80,
             width: widget.currentWidth,
             child: CarouselSlider(
@@ -72,13 +77,33 @@ class _PopularStoreListState extends State<PopularStoreList> {
                 return Builder(
                   builder: (BuildContext context) {
                     return InkWell(
-                        onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => GoToStore(shopData: shop, Selectshop: data,)
-                        ),
-                      );
-                    },
+                      onTap: () {
+                        if (data["isGroup"]) {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) => isStoreGroup(
+                                      selectedshopData: data,
+                                      groupList: data["groupMembers"],
+                                      selectedDisct: widget.disctName,
+                                      selectedGroupName: data["name"],
+                                      storeLogo: data["images"]["logo"]["url"],
+                                  groupBg: data["images"]["bg"]["url"],
+                                    shopId: data["id"],
+                                    )),
+                          );
+                        }
+                        if (!data["isGroup"]) {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) => isStroreShop(
+                                      shopslug: data["id"],
+                                      storeLogo: data["images"]["logo"]["url"],
+                                  selectedshopData: data,
+                                    disctName:widget.disctName,
+                                    )),
+                          );
+                        }
+                      },
                       child: Container(
                         margin: const EdgeInsets.only(left: 5, right: 5),
                         child: Image.network(

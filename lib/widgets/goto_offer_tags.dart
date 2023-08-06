@@ -3,16 +3,39 @@ import '../constants.dart';
 import '../screen2/appBar_offer_list.dart';
 import 'app_bar_buttons.dart';
 import 'customAppBar.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
-class TypesOfOffer extends StatelessWidget {
+class TypesOfOffer extends StatefulWidget {
   String disctName;
   List tagNames;
   String tagName;
-  TypesOfOffer(
-      {super.key,
+  TypesOfOffer({super.key,
       required this.disctName,
       required this.tagNames,
-      required this.tagName});
+      required this.tagName,});
+
+  @override
+  State<TypesOfOffer> createState() => _TypesOfOfferState();
+}
+
+class _TypesOfOfferState extends State<TypesOfOffer> {
+
+  List offerData = [];
+  //List expData = [];
+  loadshoptagdata() async {
+    final Response = await http.get(Uri.parse(
+        "https://showmydeals.in/api/kozhikode/offers?tag=${widget.tagName.toLowerCase()}"));
+
+    if (Response.statusCode == 200) {
+      print(Response.body);
+      var js = json.decode(Response.body);
+      setState(() {
+        //expData = js["expoffers"];
+        offerData = js["offers"];
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,15 +43,15 @@ class TypesOfOffer extends StatelessWidget {
     return Scaffold(
       body: ListView(
         children: [
-          CustomAppBar(),
-          AppBarButtons(screen2name: disctName),
+          const CustomAppBar(),
+          AppBarButtons(screen2name: widget.disctName, i: 1,),
           const SizedBox(
             height: 15,
           ),
           AppBarOfferList(
             currentWidth: currentWidth,
-            screen2name: disctName,
-            tagNames: tagNames,
+            screen2name: widget.disctName,
+            tagNames: widget.tagNames,
           ),
           Container(
             padding: const EdgeInsets.only(
@@ -39,7 +62,7 @@ class TypesOfOffer extends StatelessWidget {
             decoration: kContainerStyle,
             child: Padding(
               padding: const EdgeInsets.all(12.0),
-              child: Text('$tagName Offers in $disctName',
+              child: Text('${widget.tagName} Offers in ${widget.disctName}',
                   style: kTextHeadingStyle),
               //TODO:TAG BASED OFFER
             ),

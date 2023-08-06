@@ -11,12 +11,11 @@ class GotoStoresTagScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final currentWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: ListView(
         children: [
           CustomAppBar(),
-          AppBarButtons(screen2name: disctName),
+          AppBarButtons(screen2name: disctName, i: 0,),
           const SizedBox(
             height: 15,
           ),
