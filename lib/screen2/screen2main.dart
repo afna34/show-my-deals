@@ -1,6 +1,7 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter/material.dart';
+import '../widgets/side_drawer.dart';
 import 'all_offers_widget.dart';
 import 'popular_stores_list.dart';
 import 'screen2appbar.dart';
@@ -60,6 +61,7 @@ class _screen2State extends State<screen2> {
   Widget build(BuildContext context) {
     final currentWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      endDrawer: const SideDrawer(),
       body: ListView(
         children: [
            Screen2appBar(screen2name: widget.disctName, tagNames: tagList,),

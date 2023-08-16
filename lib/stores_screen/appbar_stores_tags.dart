@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:showmydealsapp/stores_screen/goto_stores_tag.dart';
 import '../constants.dart';
+//https://showmydeals.in/kozhikode/stores?type=hyper-market
+
 
 class AppBarStoreTags extends StatelessWidget {
   final String disctName;
-  const AppBarStoreTags({super.key, required this.disctName});
+  //final String selectedItem;
+   AppBarStoreTags({super.key, required this.disctName,});
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +19,8 @@ class AppBarStoreTags extends StatelessWidget {
       'Stores',
       'Groups'
     ];
+
+    //TODO  :  1
 
     final currentWidth = MediaQuery.of(context).size.width;
     return Container(
@@ -29,23 +34,25 @@ class AppBarStoreTags extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             for (var item in appBarItems)
-              InkWell(
-                  onTap: () {
+              Row(children: [
+                InkWell(
+                  onTap: (){
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) => GotoStoresTagScreen(
-                          disctName: disctName,
+                          disctName: disctName, tagSelected: item,
+                         // selectedItem:item,
                         ),
                       ),
                     );
                   },
-                  child: Row(children: [
-                    Text(
-                      item,
-                      style: const TextStyle(color: Colors.white),
-                    ),
-                    const Divider(),
-                  ])),
+                  child: Text(
+                    item,
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                ),
+                const Divider(),
+              ]),
           ],
         ),
       ),

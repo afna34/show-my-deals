@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "901234754732",
+    "project_id": "showmydeals-166be",
+    "storage_bucket": "showmydeals-166be.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:901234754732:android:fcbb3c75d620c0c7fd0b09",
+        "android_client_info": {
+          "package_name": "com.example.showmydealsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "901234754732-57j17tdr7c9g86blvi05j3p8pr0ju24m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtE6MQqALInqbE9-ons8UAHGuuwuta-c8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "901234754732-57j17tdr7c9g86blvi05j3p8pr0ju24m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

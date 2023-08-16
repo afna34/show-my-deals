@@ -48,7 +48,7 @@ class AppBarOfferList extends StatelessWidget {
                     onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => TypesOfOffer(disctName: screen2name, tagNames: tagNames, tagName:  item["name"],),
+                          builder: (context) => GotoOfferTags(disctName: screen2name, tagNames: tagNames, tagName:  item["name"],tagId : item["tag"]),
                         ),
                       );
                     },

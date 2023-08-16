@@ -8,7 +8,7 @@ const kSelectDistrictStyle = TextStyle(
     fontSize: 20, fontWeight: FontWeight.w500, color: Color(0xFF535353));
 
 const kPinkColor = Color(0xFFD3334A);
-const kTextHeadingStyle = TextStyle(fontWeight: FontWeight.bold);
+
 
 double kMinWidthOfLargeScreen = 500;
 
@@ -39,5 +39,8 @@ const kTopCornerCurvedContainer = BoxDecoration(
 );
 
 const kSmallWhiteTextStyle = TextStyle(color: Colors.white);
-
+const kTextHeadingStyle = TextStyle(fontWeight: FontWeight.bold);
 const kMediumHeadingTextStyle = TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0);
+const kSmallBoldHeadingStyle = TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0);
+const kMediumWhiteTextStyle = TextStyle(fontWeight: FontWeight.bold,fontSize: 19.0,color: Colors.white);
+

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'dropdown_list.dart';
-
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key});
+  const CustomAppBar({Key? key}) : super(key: key);
 
   @override
-  Size get preferredSize => const Size.fromHeight(
-      kToolbarHeight + 2.0); // Add 2.0 to accommodate the border
+  Size get preferredSize =>
+      const Size.fromHeight(kToolbarHeight + 2.0); // Add 2.0 to accommodate the border
 
   @override
   Widget build(BuildContext context) {
@@ -22,15 +21,24 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       actions: [
-        const SizedBox(width: 20,),
         Container(
           margin: const EdgeInsets.all(10),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: const Color(0xFFe5e5e5)),
+            borderRadius: BorderRadius.circular(20),
+            color: const Color(0xFFe5e5e5),
+          ),
           child: DropdownList(),
         ),
-        const SizedBox(width: 16),
+        const SizedBox(
+          width: 16,
+        ),
+        IconButton(
+          icon: const Icon(Icons.menu,color: Colors.black,), // Use the desired icon here
+          onPressed: () {
+            // Open the side drawer
+            Scaffold.of(context).openEndDrawer();
+          },
+        ),
       ],
     );
   }

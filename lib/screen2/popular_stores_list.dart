@@ -33,9 +33,6 @@ class _PopularStoreListState extends State<PopularStoreList> {
     }
   }
 
-
-
-
   @override
   void initState() {
     super.initState();
@@ -81,13 +78,9 @@ class _PopularStoreListState extends State<PopularStoreList> {
                         if (data["isGroup"]) {
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                                builder: (context) => isStoreGroup(
-                                      selectedshopData: data,
-                                      groupList: data["groupMembers"],
+                                builder: (context) => IsStoreGroup(
                                       selectedDisct: widget.disctName,
                                       selectedGroupName: data["name"],
-                                      storeLogo: data["images"]["logo"]["url"],
-                                  groupBg: data["images"]["bg"]["url"],
                                     shopId: data["id"],
                                     )),
                           );
@@ -95,10 +88,8 @@ class _PopularStoreListState extends State<PopularStoreList> {
                         if (!data["isGroup"]) {
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                                builder: (context) => isStroreShop(
-                                      shopslug: data["id"],
-                                      storeLogo: data["images"]["logo"]["url"],
-                                  selectedshopData: data,
+                                builder: (context) => IsStoreShop(
+                                      shopId: data["id"],
                                     disctName:widget.disctName,
                                     )),
                           );

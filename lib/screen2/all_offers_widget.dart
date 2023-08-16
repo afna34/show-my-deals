@@ -36,7 +36,7 @@ class AllOffersWidget extends StatelessWidget {
               alignment: WrapAlignment.center,
               runSpacing: 20,
               spacing: 9,
-              children: [
+            children: [
                 for (var data in OfferData)
                   InkWell(
                     onTap: () {
@@ -45,10 +45,7 @@ class AllOffersWidget extends StatelessWidget {
                           builder: (context) => PosterScreen(
                             disctName: widget.disctName,
                             imageLink: data["pages"],
-                            //shopName: data["shopname"],
-                            //groupName:data["groupname"],
-                            //shopAddress : data["shopaddress"],
-                            //offerName: data["name"],
+                              posterId : data["id"]
                           ),
                         ),
                       );
@@ -86,32 +83,31 @@ class AllOffersWidget extends StatelessWidget {
                                         height: 180,
                                       ),
                                     )),
+                                //TODO:ADJUST THE POSITION
                                 Positioned(
-                                    top: 10,
-                                    right: 0,
-                                    child: Container(
-                                      decoration: kPageCountTagStyle,
-                                      width: 60,
-                                      height: 30,
-                                      child: Center(
-                                          child: Text(
-                                        "${data["offerCount"]} Pages",
-                                        style: const TextStyle(
-                                            color: Colors.white),
-                                        textAlign: TextAlign.center,
-                                      )),
-                                    )),
+                                  height: 60,
+                                  right: 5,
+                                  bottom: 0,
+                                  child: SizedBox(
+                                    height: 30,
+                                    width: 60,
+                                    child: Image.network(
+                                      data["logo"],
+                                      fit: BoxFit.contain,
+                                    ),)),
                               ],
                             ),
                           ),
+                          //Icon(Icons.remove_red_eye_outlined,size: 16,)
                           Container(
                             margin: const EdgeInsets.only(
                                 left: 45.0, top: 5.0, bottom: 5.0),
                             decoration: kTopCornerCurvedContainer,
                             height: 20,
                             child: Text(
-                              '${data["viewCount"]} Views',
-                              textAlign: TextAlign.center,
+                                  '${data["viewCount"]} Views',
+                                  textAlign: TextAlign.center,
+
                             ),
                           )
                         ],

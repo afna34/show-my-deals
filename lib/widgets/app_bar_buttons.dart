@@ -7,11 +7,7 @@ class AppBarButtons extends StatefulWidget {
   String screen2name;
   int i;
 
-  AppBarButtons({
-    super.key,
-    required this.screen2name,
-    required this.i
-  });
+  AppBarButtons({super.key, required this.screen2name, required this.i});
 
   @override
   State<AppBarButtons> createState() => _AppBarButtonsState();
@@ -23,20 +19,21 @@ class _AppBarButtonsState extends State<AppBarButtons> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Container(
-          child: customBttons(
-            btnColor: (widget.i != 0) ? kPinkColor : const Color(0xFFE5E5E5),
-            text: 'Offers',
-            ontap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) =>
-                      screen2(disctName: widget.screen2name,)));
-            },
-            textcolor: (widget.i == 0) ? Colors.black : Colors.white,
-          ),
+        customBttons(
+          btnColor: (widget.i != 0) ? kPinkColor : const Color(0xFFE5E5E5),
+          text: 'Offers',
+          ontap: () {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => screen2(
+                      disctName: widget.screen2name,
+                    )));
+          },
+          textcolor: (widget.i == 0) ? Colors.black : Colors.white,
         ),
         customBttons(
-          btnColor: (widget.i != 0) ? const Color(0xFFE5E5E5):  kPinkColor, //TODO:Need to change the button color when clicked
+          btnColor: (widget.i != 0)
+              ? const Color(0xFFE5E5E5)
+              : kPinkColor,
           text: 'Stores',
           ontap: () {
             Navigator.of(context).push(MaterialPageRoute(

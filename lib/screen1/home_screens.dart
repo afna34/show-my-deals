@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import '../widgets/side_drawer.dart';
 import 'select_district_page.dart';
 import '../constants.dart';
 import '../widgets/customAppBar.dart';
 
 class Screen1main extends StatelessWidget {
+  const Screen1main({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: const CustomAppBar(),
+      endDrawer: const SideDrawer(),
       body: ListView(
         children: const[
           Divider(
