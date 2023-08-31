@@ -13,6 +13,7 @@ class LoadingScreen extends StatelessWidget {
   }
 }
 
+
 //offer group offer ano allenn nokaan : offers.isShop,offers.
 //store group ano shop ano ariyan : shops.isGroup,shops.isShop
 

@@ -8,10 +8,11 @@ import 'appbar_stores_tags.dart';
 class GotoStoresTagScreen extends StatelessWidget {
   String disctName;
   String tagSelected;
-  GotoStoresTagScreen(
-      {super.key,
-      required this.disctName,
-      required this.tagSelected,});
+  GotoStoresTagScreen({
+    super.key,
+    required this.disctName,
+    required this.tagSelected,
+  });
 
   @override
   Widget build(BuildContext context) {
